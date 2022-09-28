@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="name-box">
+            <h3 class="name-title">Name & Nickname</h3>
+            <form class="name-form">
+                <input class="name-input" type="text" aria-label="Enter Name & Nickname"
+                    placeholder="Enter Name & Nickname">
+                <button class="name-btn" type="submit">Send</button>
+            </form>
+            <span class="name-error">Name & Nickname is required</span>
+        </div>
+
+        <div class="form-main-box ">
+            <h3 class="name-result-text"></h3>
+            <div class="form-box">
+                <h3 class="todo-title">ToDo <span class="todo-marked">App</span></h3>
+                <div class="error-box">
+                    <span>Please fill your list</span>
+                </div>
+                <form class="main-form">
+                    <input class="todo-input" type="text" aria-label="Enter your doing list"
+                        placeholder="Enter your to do list">
+                    <button class="todo-btn" type="submit">ADD</button>
+                    <button class="todo-delete-all-btn" type="button">Delete All</button>
+                </form>
+                <div class="todo-empty-text-box">
+                    <span class="todo-empty-text">Nothing to do</span>
+                </div>
+                <ol class="todo-order-list"></ol>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./main.js"></script>
+</body>
+
+</html>

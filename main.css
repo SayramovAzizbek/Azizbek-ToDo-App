@@ -1,0 +1,147 @@
+body {
+    background-color: #5E7ADB;
+}
+
+.form-main-box,
+.name-box {
+    width: 850px;
+    margin: 100px auto 0 auto;
+}
+
+.name-box {
+    position: relative;
+}
+
+.name-title {
+    margin: 0 0 5px 25px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffe825;
+}
+
+.name-error {
+    position: absolute;
+    top: 85px;
+    left: 0;
+    padding: 10px 20px;
+    color: #ffff00;
+    border-radius: 20px;
+    background-color: #ff0000;
+    opacity: 0;
+    transition: opacity .5s;
+}
+
+.name-result-text {
+    margin: 0 0 5px 25px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffff00;
+}
+
+.form-box {
+    position: relative;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 25px;
+}
+
+.todo-title {
+    margin: 0 0 40px 0;
+    font-size: 45px;
+    font-weight: 700;
+    color: #0000ff;
+    text-align: center;
+}
+
+.todo-marked {
+    color: #ff0000;
+}
+
+.error-box {
+    position: absolute;
+    top: 75px;
+    padding: 10px 20px;
+    background-color: #ff6347;
+    border-radius: 50px;
+    opacity: 0;
+    transition: opacity .5s;
+}
+
+.error-box-on {
+    opacity: 1;
+}
+
+.todo-input,
+.name-input {
+    width: 500px;
+    padding: 10px;
+    font-weight: 700;
+    background-color: #f0ffff;
+    border-radius: 20px;
+}
+
+.todo-input::placeholder {
+    font-weight: 700;
+}
+
+.todo-btn,
+.todo-delete-all-btn,
+.name-btn {
+    margin-left: 20px;
+    padding: 10px 30px;
+    font-size: 18px;
+    font-weight: 700;
+    background-color: #7fffd4;
+    border: none;
+    border-radius: 20px;
+}
+
+.todo-delete-all-btn {
+    margin-left: 0;
+    color: #ffffff;
+    background-color: #ff6347;
+}
+
+.name-btn {
+    color: #ffffff;
+    background-color: #ff6347;
+}
+
+.todo-order-list {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.todo-order-list li {
+    /* This width is for temporary commented */
+    /* width: 500px;  */
+    margin-top: 15px;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: 700;
+    background-color: #F2F2F2;
+    border-radius: 20px;
+    border: 2px solid #5E7ADB;
+}
+
+.todo-order-list li:first-child {
+    margin-top: 35px;
+}
+
+.todo-empty-text-box {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.todo-empty-text {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 700;
+    color: #008080;
+}
+
+.todo-empty-text-box--off {
+    display: none;
+}
