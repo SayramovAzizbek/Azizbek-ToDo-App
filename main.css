@@ -114,6 +114,30 @@ body {
     background-color: #ff6347;
 }
 
+.todo-empty-text-box {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.todo-empty-text {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 700;
+    color: #008080;
+}
+
+.todo-empty-text-box--off {
+    display: none;
+}
+
+.todo-item-counter {
+    display: none;
+    margin: 20px 0 0 25px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #5a3ab6
+}
+
 .todo-order-list {
     width: 100%;
     margin: 0;
@@ -133,22 +157,6 @@ body {
     border: 2px solid #5E7ADB;
 }
 
-.todo-order-list li:first-child {
-    margin-top: 35px;
-}
-
-.todo-empty-text-box {
-    margin-top: 25px;
-    text-align: center;
-}
-
-.todo-empty-text {
-    margin: 0;
-    font-size: 30px;
-    font-weight: 700;
-    color: #008080;
-}
-
-.todo-empty-text-box--off {
-    display: none;
-}
+/* .todo-order-list li:first-child { */
+    /* margin-top: 35px; */
+/* } */

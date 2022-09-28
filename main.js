@@ -6,6 +6,7 @@ let toDoDeleteAllBtn = document.querySelector(".todo-delete-all-btn");
 let todoOrderList = document.querySelector(".todo-order-list");
 let todoErrorBox = document.querySelector(".error-box");
 let todoEmptyTextBox = document.querySelector(".todo-empty-text-box");
+let todoTextCounter = document.querySelector(".todo-item-counter");
 
 let nameBox = document.querySelector(".name-box");
 let nameForm = document.querySelector(".name-form");
@@ -46,6 +47,12 @@ toDoForm.addEventListener("submit", (evt) => {
     toDoList.push(todoObject);
     todoErrorBox.classList.remove("error-box-on");
     todoEmptyTextBox.classList.add("todo-empty-text-box--off");
+    todoTextCounter.classList.add("d-block");
+    if (toDoList.length == 1) {
+      todoTextCounter.textContent = `You have ${toDoList.length} plan ToDo`;
+    } else {
+      todoTextCounter.textContent = `You have ${toDoList.length} plans ToDo`;
+    }
   } else {
     toDoList.push();
     todoErrorBox.classList.add("error-box-on");
@@ -69,6 +76,7 @@ function addList() {
       toDoList = [];
       todoOrderList.innerHTML = "";
       todoEmptyTextBox.classList.remove("todo-empty-text-box--off");
+      todoTextCounter.classList.remove("d-block");
     });
   });
   // ! For deleting item one by one
