@@ -5,7 +5,14 @@ body {
 .form-main-box,
 .name-box {
     width: 850px;
-    margin: 100px auto 0 auto;
+    margin: 100px auto 50px auto;
+}
+
+.name-box {
+    width: 700px;
+    padding: 30px;
+    background-color: #ffffff76;
+    border-radius: 20px;
 }
 
 .name-box {
@@ -16,7 +23,7 @@ body {
     margin: 0 0 5px 25px;
     font-size: 22px;
     font-weight: 700;
-    color: #ffe825;
+    color: #ffee53;
 }
 
 .name-error {
@@ -41,7 +48,7 @@ body {
 .form-box {
     position: relative;
     padding: 30px;
-    background-color: #ffffff;
+    background-color: #ffffff76;
     border-radius: 25px;
 }
 
@@ -97,7 +104,7 @@ body {
 }
 
 .todo-delete-all-btn {
-    margin-left: 0;
+    margin-left: 10px;
     color: #ffffff;
     background-color: #ff6347;
 }
@@ -121,7 +128,7 @@ body {
     padding: 10px 15px;
     font-size: 16px;
     font-weight: 700;
-    background-color: #F2F2F2;
+    background-color: #f0ffff;
     border-radius: 20px;
     border: 2px solid #5E7ADB;
 }

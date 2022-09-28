@@ -7,7 +7,6 @@ let todoOrderList = document.querySelector(".todo-order-list");
 let todoErrorBox = document.querySelector(".error-box");
 let todoEmptyTextBox = document.querySelector(".todo-empty-text-box");
 
-/* Name form code */
 let nameBox = document.querySelector(".name-box");
 let nameForm = document.querySelector(".name-form");
 let nameInput = document.querySelector(".name-input");
@@ -15,6 +14,7 @@ let nameBtn = document.querySelector(".name-btn");
 let nameRestultText = document.querySelector(".name-result-text");
 let nameErrorText = document.querySelector(".name-error");
 
+/* Name form code */
 toDoFormBox.classList.add("d-none");
 
 nameForm.addEventListener("submit", (evt) => {
@@ -62,38 +62,15 @@ function addList() {
   toDoList.forEach((item) => {
     let todoOrderItem = document.createElement("li");
     todoOrderItem.textContent = item.name;
-
-    // ! For deleting item one by one
-    // todoOrderItem.addEventListener("click", (evt) => {
-    //   evt.preventDefault();
-    //   todoOrderItem.setAttribute(
-    //     "title",
-    //     "If you finished this work, you can delete it by pressing the items"
-    //   );
     todoOrderList.appendChild(todoOrderItem);
 
-    // todoOrderItem.classList.add("text-decoration-line-through");
-    // todoOrderItem.classList.add("d-none");
-
     // ! For deleting the item from ToDo App
-    // let mySpan = document.createElement("span");
-    // mySpan.innerHTML = "x";
-    // todoOrderItem.appendChild(mySpan);
-
-    // const close = document.querySelector("span");
-    // for (let i = 0; i < close.length; i++) {
-    //   close[i].addEventListener("click", () => {
-    //     close[i].parentElement.style.opacity = 0;
-    //     setTimeout(() => {
-    //       close[i].parentElement.style.display = "none";
-    //     }, 500);
-    //   });
-    // }
-    // });
-    toDoDeleteAllBtn.addEventListener("click", () => {
-      todoOrderList.removechild(todoOrderItem);
+    toDoDeleteAllBtn.addEventListener("click", (e) => {
+      toDoList = [];
+      todoOrderList.innerHTML = "";
+      todoEmptyTextBox.classList.remove("todo-empty-text-box--off");
     });
   });
+  // ! For deleting item one by one
+  // code ....
 }
-
-// nechta item qo'shilganini sanab turish, delete function qo'shish, deleteAll ni qilish,
