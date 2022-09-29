@@ -15,7 +15,7 @@ let nameBtn = document.querySelector(".name-btn");
 let nameRestultText = document.querySelector(".name-result-text");
 let nameErrorText = document.querySelector(".name-error");
 
-/* Name form code */
+// ! Name form code
 toDoFormBox.classList.add("d-none");
 
 nameForm.addEventListener("submit", (evt) => {
@@ -32,8 +32,10 @@ nameForm.addEventListener("submit", (evt) => {
   }
 });
 
-/* ToDo App Main code */
-let toDoList = [];
+// ! ToDo App Main code
+
+// let toDoList = [];
+let toDoList = JSON.parse(window.localStorage.getItem("userName")) || [];
 
 toDoForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
@@ -42,12 +44,6 @@ toDoForm.addEventListener("submit", (evt) => {
     id: toDoList.length,
     name: toDoInputValue,
   };
-
-  // ! Local Storage primary codes
-  window.localStorage.setItem("user", JSON.stringify(todoObject));
-  window.localStorage.getItem("user");
-  JSON.parse(window.localStorage.getItem("user"));
-  window.localStorage.removeItem("name");
 
   if (toDoInputValue !== "") {
     toDoList.push(todoObject);
@@ -66,9 +62,13 @@ toDoForm.addEventListener("submit", (evt) => {
 
   //   toDoList.push(todoObject);
 
-  addList();
+  // addList();
+  addList(toDoList);
+  window.localStorage.setItem("userName", JSON.stringify(toDoList));
   toDoInput.value = "";
 });
+
+// ! Adding item code
 
 function addList() {
   todoOrderList.innerHTML = "";
@@ -88,3 +88,4 @@ function addList() {
   // ! For deleting item one by one
   // code ....
 }
+addList(toDoList);
