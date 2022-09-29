@@ -24,7 +24,7 @@ nameForm.addEventListener("submit", (evt) => {
   if (nameInputValue !== "") {
     nameRestultText.textContent = `${nameInputValue}'s ToDo List`;
     toDoFormBox.classList.remove("d-none");
-    toDoFormBox.classList.add("d-block");
+    // toDoFormBox.classList.add("d-block");
     nameBox.classList.add("d-none");
     nameErrorText.classList.add("opacity-100");
   } else {
@@ -42,6 +42,12 @@ toDoForm.addEventListener("submit", (evt) => {
     id: toDoList.length,
     name: toDoInputValue,
   };
+
+  // ! Local Storage primary codes
+  window.localStorage.setItem("user", JSON.stringify(todoObject));
+  window.localStorage.getItem("user");
+  JSON.parse(window.localStorage.getItem("user"));
+  window.localStorage.removeItem("name");
 
   if (toDoInputValue !== "") {
     toDoList.push(todoObject);
