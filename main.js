@@ -24,7 +24,6 @@ nameForm.addEventListener("submit", (evt) => {
   if (nameInputValue !== "") {
     nameRestultText.textContent = `${nameInputValue}'s ToDo List`;
     toDoFormBox.classList.remove("d-none");
-    // toDoFormBox.classList.add("d-block");
     nameBox.classList.add("d-none");
     nameErrorText.classList.add("opacity-100");
   } else {
@@ -76,6 +75,16 @@ function addList() {
     let todoOrderItem = document.createElement("li");
     todoOrderItem.textContent = item.name;
     todoOrderList.appendChild(todoOrderItem);
+
+    if (todoOrderItem.textContent == item.name) {
+      todoTextCounter.classList.add("d-block");
+      if (toDoList.length == 1) {
+        todoTextCounter.textContent = `You have ${toDoList.length} plan ToDo`;
+      } else {
+        todoTextCounter.textContent = `You have ${toDoList.length} plans ToDo`;
+      }
+      todoEmptyTextBox.classList.add("todo-empty-text-box--off");
+    }
 
     // ! For deleting the item from ToDo App
     toDoDeleteAllBtn.addEventListener("click", (e) => {
