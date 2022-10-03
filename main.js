@@ -82,6 +82,49 @@ function addList() {
     deleteItemBtn.dataset.id = item.id;
     todoOrderItem.appendChild(deleteItemBtn);
 
+    // ! Tick one by one for test code
+    // let tickItem = document.createElement("button");
+    // tickItem.classList.add("todo-tickItem-btn");
+    // tickItem.setAttribute("type", "button");
+    // tickItem.textContent = "";
+    // tickItem.dataset.id = item.id;
+    // todoOrderItem.appendChild(tickItem);
+
+    // tickItem.addEventListener("click", () => {
+    //   toDoInput.value = todoOrderItem.innertext;
+    //   const parent = tickItem.parentElement;
+    //   parent.parentElement.removeChild(parent);
+    // });
+
+    // todoOrderItem.addEventListener("dblclick", () => {
+    //   todoOrderItem.classList.toggle("text-decoration-line-through");
+    //   todoOrderItem.setAttribute("disabled", "disabled");
+    // });
+
+    // todoOrderItem.forEach((e) => {
+    // let listText = e.querySelector(".todo-tickItem-btn");
+    // let btnDone = document.createElement("button");
+    // e.appendChild(btnDone);
+    // btnDone.innerHTML = "<i class='fas fa-check'></i>";
+    // btnDone.addEventListener("click", () => {
+    //   done();
+    // });
+    // function done() {
+    //   listText.classList.toggle("text-decoration-line-through");
+    //   btnDone.classList.toggle("text-decoration-line-through");
+    // }
+    // });
+
+    // todoOrderList.addEventListener("click", function (evt) {
+    //   if (evt.target.matches(".todo-order-item")) {
+    //     let itemId = Number(evt.target.dataset.id);
+    //     let listId = toDoList.findIndex((item) => item.id === itemId);
+    //     toDoList.splice(listId, 1);
+    //     itemId.classList.add("text-decoration-line-through");
+    //     addList(toDoList);
+    //   }
+    // });
+
     if (todoOrderItem.textContent == item.name) {
       todoTextCounter.classList.add("d-block");
       if (toDoList.length == 1) {
@@ -121,6 +164,7 @@ todoOrderList.addEventListener("click", function (evt) {
       todoTextCounter.textContent = ``;
       todoEmptyTextBox.classList.remove("todo-empty-text-box--off");
       todoTextCounter.classList.add("d-none");
+      localStorage.clear();
     }
   }
 });
