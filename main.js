@@ -47,6 +47,7 @@ toDoForm.addEventListener("submit", (evt) => {
   if (toDoInputValue !== "") {
     toDoList.push(todoObject);
     todoErrorBox.classList.remove("error-box-on");
+    todoTextCounter.classList.remove("d-none");
     todoEmptyTextBox.classList.add("todo-empty-text-box--off");
     todoTextCounter.classList.add("d-block");
     if (toDoList.length == 1) {
@@ -59,22 +60,27 @@ toDoForm.addEventListener("submit", (evt) => {
     todoErrorBox.classList.add("error-box-on");
   }
 
-  //   toDoList.push(todoObject);
-
-  // addList();
   addList(toDoList);
   window.localStorage.setItem("userName", JSON.stringify(toDoList));
   toDoInput.value = "";
 });
 
 // ! Adding item code
-
 function addList() {
   todoOrderList.innerHTML = "";
   toDoList.forEach((item) => {
     let todoOrderItem = document.createElement("li");
+    todoOrderItem.classList.add("todo-order-item");
     todoOrderItem.textContent = item.name;
+    todoOrderItem.dataset.id = item.id;
     todoOrderList.appendChild(todoOrderItem);
+
+    let deleteItemBtn = document.createElement("button");
+    deleteItemBtn.classList.add("todo-deleteItem-btn");
+    deleteItemBtn.setAttribute("type", "button");
+    deleteItemBtn.textContent = "";
+    deleteItemBtn.dataset.id = item.id;
+    todoOrderItem.appendChild(deleteItemBtn);
 
     if (todoOrderItem.textContent == item.name) {
       todoTextCounter.classList.add("d-block");
@@ -86,15 +92,35 @@ function addList() {
       todoEmptyTextBox.classList.add("todo-empty-text-box--off");
     }
 
-    // ! For deleting the item from ToDo App
+    // ! For deleting all items from ToDo App
     toDoDeleteAllBtn.addEventListener("click", (e) => {
       toDoList = [];
       todoOrderList.innerHTML = "";
       todoEmptyTextBox.classList.remove("todo-empty-text-box--off");
       todoTextCounter.classList.remove("d-block");
+      localStorage.clear();
     });
   });
-  // ! For deleting item one by one
-  // code ....
 }
 addList(toDoList);
+
+// ! Delete one by one
+todoOrderList.addEventListener("click", function (evt) {
+  if (evt.target.matches(".todo-deleteItem-btn")) {
+    let btnId = Number(evt.target.dataset.id);
+    let itemId = toDoList.findIndex((item) => item.id === btnId);
+    toDoList.splice(itemId, 1);
+    addList(toDoList);
+    todoTextCounter.textContent = `You have ${toDoList.length} plan ToDo`;
+    if (toDoList.length == 1) {
+      todoTextCounter.textContent = `You have ${toDoList.length} plan ToDo`;
+    } else {
+      todoTextCounter.textContent = `You have ${toDoList.length} plans ToDo`;
+    }
+    if (toDoList.length == 0) {
+      todoTextCounter.textContent = ``;
+      todoEmptyTextBox.classList.remove("todo-empty-text-box--off");
+      todoTextCounter.classList.add("d-none");
+    }
+  }
+});

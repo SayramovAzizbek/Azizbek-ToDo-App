@@ -145,9 +145,12 @@ body {
     list-style: none;
 }
 
-.todo-order-list li {
+.todo-order-item {
     /* This width is for temporary commented */
     /* width: 500px;  */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-top: 15px;
     padding: 10px 15px;
     font-size: 16px;
@@ -155,6 +158,16 @@ body {
     background-color: #f0ffff;
     border-radius: 20px;
     border: 2px solid #5E7ADB;
+}
+
+.todo-deleteItem-btn {
+    padding: 15px 15px;
+    background-color: transparent;
+    border: none;
+    border-radius: 20px;
+    background-image: url("./images/delete-icon.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 /* .todo-order-list li:first-child { */
