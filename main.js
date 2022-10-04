@@ -7,6 +7,7 @@ let todoOrderList = document.querySelector(".todo-order-list");
 let todoErrorBox = document.querySelector(".error-box");
 let todoEmptyTextBox = document.querySelector(".todo-empty-text-box");
 let todoTextCounter = document.querySelector(".todo-item-counter");
+let todoTextResult = document.querySelector(".todo-item-result");
 
 let nameBox = document.querySelector(".name-box");
 let nameForm = document.querySelector(".name-form");
@@ -153,6 +154,7 @@ todoOrderList.addEventListener("click", function (evt) {
     let btnId = Number(evt.target.dataset.id);
     let itemId = toDoList.findIndex((item) => item.id === btnId);
     toDoList.splice(itemId, 1);
+    window.localStorage.setItem("userName", JSON.stringify(toDoList));
     addList(toDoList);
     todoTextCounter.textContent = `You have ${toDoList.length} plan ToDo`;
     if (toDoList.length == 1) {

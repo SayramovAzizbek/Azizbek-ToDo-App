@@ -130,12 +130,17 @@ body {
     display: none;
 }
 
-.todo-item-counter {
+.todo-item-counter,
+.todo-item-result {
     display: none;
     margin: 20px 0 0 25px;
     font-size: 18px;
     font-weight: 700;
     color: #5a3ab6
+}
+
+.todo-item-result {
+    display: block;
 }
 
 .todo-order-list {
