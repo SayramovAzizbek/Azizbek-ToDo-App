@@ -2,10 +2,24 @@ body {
     background-color: #5E7ADB;
 }
 
-.form-main-box,
-.name-box {
+.name-box,
+.form-main-box {
     width: 850px;
     margin: 100px auto 50px auto;
+}
+
+.form-main-box {
+    margin: 0;
+}
+
+.todo-app-main-box,
+.todo-search-box {
+    display: flex;
+    margin: 100px auto 50px auto;
+}
+
+.todo-search-box {
+    justify-content: center;
 }
 
 .name-box {
@@ -45,6 +59,26 @@ body {
     color: #ffff00;
 }
 
+.counter-main-box {
+    margin: 40px 100px 0 0;
+    width: 220px;
+}
+
+.main-counter-plans {
+    display: block;
+    margin: 0;
+    padding: 5px 10px;
+    color: #ffd100;
+    font-weight: 700;
+    border: 2px solid #ffd100;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.main-counter-plans:not(:last-child) {
+    margin-bottom: 30px;
+}
+
 .form-box {
     position: relative;
     padding: 30px;
@@ -78,8 +112,14 @@ body {
     opacity: 1;
 }
 
+.error-box-text {
+    color: #ffffff;
+    font-weight: 600;
+}
+
 .todo-input,
-.name-input {
+.name-input,
+.todo-serach-input {
     width: 500px;
     padding: 10px;
     font-weight: 700;
@@ -87,13 +127,19 @@ body {
     border-radius: 20px;
 }
 
-.todo-input::placeholder {
+.todo-serach-input {
+    width: 700px;
+}
+
+.todo-input::placeholder,
+.todo-serach-input::placeholder {
     font-weight: 700;
 }
 
 .todo-btn,
 .todo-delete-all-btn,
-.name-btn {
+.name-btn,
+.todo-search-btn {
     margin-left: 20px;
     padding: 10px 30px;
     font-size: 18px;
@@ -101,6 +147,10 @@ body {
     background-color: #7fffd4;
     border: none;
     border-radius: 20px;
+}
+
+.todo-search-btn {
+    background-color: #FFFF00;
 }
 
 .todo-delete-all-btn {
@@ -151,30 +201,88 @@ body {
 }
 
 .todo-order-item {
-    /* This width is for temporary commented */
-    /* width: 500px;  */
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 15px;
     padding: 10px 15px;
-    font-size: 16px;
-    font-weight: 700;
     background-color: #f0ffff;
     border-radius: 20px;
     border: 2px solid #5E7ADB;
 }
 
-.todo-deleteItem-btn {
-    padding: 15px 15px;
-    background-color: transparent;
-    border: none;
-    border-radius: 20px;
-    background-image: url("./images/delete-icon.svg");
-    background-repeat: no-repeat;
-    background-size: contain;
+.item-check-and-text-box {
+    display: flex;
+    align-items: center;
 }
 
-/* .todo-order-list li:first-child { */
-/* margin-top: 35px; */
-/* } */
+.item-check-label {
+    margin-right: 5px;
+    padding: 5px 0 0 0;
+}
+
+.item-input-span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url("./images/oval.png");
+    background-position: center;
+    background-size: 13px 13px;
+    background-repeat: no-repeat;
+}
+
+.item-check-input:checked+.item-input-span {
+    width: 20px;
+    height: 20px;
+    background-image: url("./images/check-mark.png");
+    background-size: cover;
+}
+
+.todo-item-text {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.todo-item-btn-box {
+    display: flex;
+    align-items: center;
+}
+
+.todo-edit-btn {
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+    background-image: url("./images/edit-icon.png");
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: none;
+}
+
+.todo-deleteItem-btn {
+    width: 30px;
+    height: 30px;
+    background-image: url("./images/delete-icon.svg");
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: none;
+}
+
+.cancel-btn {
+    width: 100%;
+    height: 100%;
+    font-weight: 700;
+    /* background-image: url("./images/reset-icon.png"); */
+    background-image: none;
+}
+
+.deleted-list {
+    display: flex;
+    flex-direction: column;
+    width: 780px;
+    margin: 50px auto 0 auto;
+    padding-left: 0;
+    list-style: none;
+}
