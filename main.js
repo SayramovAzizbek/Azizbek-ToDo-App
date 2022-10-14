@@ -1,3 +1,5 @@
+const siteBody = document.querySelector(".site-body");
+
 const nameBox = document.querySelector(".name-box");
 const nameForm = document.querySelector(".name-form");
 const nameInput = document.querySelector(".name-input");
@@ -24,6 +26,10 @@ const todoErrorBox = document.querySelector(".error-box");
 const todoEmptyTextBox = document.querySelector(".todo-empty-text-box");
 const todoTextCounter = document.querySelector(".todo-item-counter");
 const todoTextResult = document.querySelector(".todo-item-result");
+
+const deleteAllModalBox = document.querySelector(".delet-all-main-modal");
+const deleteModalSureBtn = document.querySelector(".delete-modal-sure");
+const deleteModalUnSureBtn = document.querySelector(".delete-modal-unsure");
 
 let deleteItem;
 
@@ -60,6 +66,7 @@ if (toDoList.length > 0) {
   }
 }
 
+// ! Main ToDo's submit event
 toDoForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
   toDoInputValue = toDoInput.value;
@@ -166,17 +173,31 @@ function addList(toDoList, todoOrderList, itemBtnText) {
     todoOrderList.appendChild(todoOrderItem);
   });
 }
-
 addList(toDoList, todoOrderList, "");
 
-// ! Delete all items at once
-toDoDeleteAllBtn.addEventListener("click", (e) => {
+// ! Show modal for deleting all items
+toDoDeleteAllBtn.addEventListener("click", () => {
+  if (toDoList.length > 0) {
+    siteBody.classList.add("site-body--on");
+    deleteAllModalBox.classList.add("delet-all-main-modal--on");
+  }
+});
+
+// ! Show Delete All Modal
+deleteModalSureBtn.addEventListener("click", () => {
   toDoList = [];
   todoOrderList.innerHTML = "";
   todoEmptyTextBox.classList.remove("todo-empty-text-box--off");
   todoTextCounter.classList.remove("d-block");
+  siteBody.classList.remove("site-body--on");
+  deleteAllModalBox.classList.remove("delet-all-main-modal--on");
   localStorage.clear();
   counterItems();
+});
+
+deleteModalUnSureBtn.addEventListener("click", () => {
+  siteBody.classList.remove("site-body--on");
+  deleteAllModalBox.classList.remove("delet-all-main-modal--on");
 });
 
 // ? Deleting, Checking and Rechanging one by one
