@@ -38,7 +38,7 @@ let todoDeleteList = document.querySelector(".deleted-list");
 // ! Name form code
 nameForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
-  let nameInputValue = nameInput.value;
+  let nameInputValue = nameInput.value.trim();
   if (nameInputValue !== "") {
     nameRestultText.textContent = `${nameInputValue}'s ToDo List`;
     toDoFormBox.classList.remove("d-none");
@@ -69,7 +69,7 @@ if (toDoList.length > 0) {
 // ! Main ToDo's submit event
 toDoForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
-  toDoInputValue = toDoInput.value;
+  toDoInputValue = toDoInput.value.trim();
   const todoObject = {
     id: toDoList.length > 0 ? toDoList[toDoList.length - 1].id + 1 : 1,
     name: toDoInputValue,
